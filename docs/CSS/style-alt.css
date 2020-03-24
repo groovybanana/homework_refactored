@@ -1,0 +1,75 @@
+.body2 {
+    background-color: white; 
+    
+}
+
+.display-4 {
+    color: darkblue;
+}
+
+.subtitle, .title {
+    color: #fefbd8;
+}
+
+p {
+    color: darkslategray;
+}
+
+.header {
+    background-image: url("../port/img/circle-blues.png");
+    background-repeat: repeat;
+}
+
+.nav-link {
+    color: #fefbd8;
+}
+
+.nav-link:hover {
+    color: #fefbd8;
+    text-decoration: underline;
+}
+
+.left {
+    background-color: #0D0B52;
+    margin: -32px 0 0 0;
+}
+
+.noborder {
+    border: none;
+}
+
+.ferris {
+    font-family: 'Raleway', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+h2 {
+    color: #0D0B52;
+    font-family: 'Anton', sans-serif;
+}
+
+.active {
+    color: #fefbd8;
+    text-decoration: underline;
+}
+
+.date {
+    font-style: italic;
+    color: black;
+}
+
+.post {
+    padding: 15px;
+}
+
+.blogpost {
+    border: 2px solid darkblue;
+    padding: 20px 0;
+    margin-bottom: 20px;
+}
+
+ul.paws {
+    list-style-image: url("../port/img/paw.png");
+    color: darkslategray;
+    }

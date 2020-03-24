@@ -1,0 +1,196 @@
+p {
+	font-family: 'Gothic A1', sans-serif;
+	color: #DDDDDD;
+	margin: 20px;
+}
+
+h1, h2, h3 {
+font-family: 'Oswald', sans-serif;
+}
+
+h1 {
+	color: #f5a442;
+	font-size: 36pt;
+	margin: 35px 0 15px 20px;
+}
+
+h2 {
+	color: #f5a442;
+	font-size: 28pt;
+	margin: 0 0 0 20px;
+}
+
+body {
+	background-color: #353535; 
+	
+}
+
+.image
+{
+	position: fixed;
+    
+}
+
+
+.intro {
+	font-size: 16pt;
+}
+
+.bar {
+	padding-bottom: 50px;
+	margin-left:20px;
+}
+
+.date {
+	font-size: 15pt;
+	font-style: italic;
+	margin: 0 0 0 20px;
+	color: #f7ebdc;
+}
+
+.bimgright {
+	float:right; 
+	margin:20px;
+}
+
+.bimgleft {
+	display: inline;
+	float:left; 
+	margin:20px;
+}
+
+
+
+nav {
+	margin: 27px auto 0;
+	position: absolute;
+	left: 25;
+	width: 590px;
+	height: 50px;
+	background-color: #474747;
+	border-radius: 8px;
+	font-size: 0;
+}
+nav a {
+	line-height: 50px;
+	height: 100%;
+	font-size: 15px;
+	display: inline-block;
+	position: relative;
+	z-index: 1;
+	text-decoration: none;
+	text-transform: uppercase;
+	text-align: center;
+	color: white;
+	cursor: pointer;
+}
+nav .animation {
+	position: absolute;
+	height: 100%;
+	top: 0;
+	z-index: 0;
+	transition: all .5s ease 0s;
+	border-radius: 8px;
+}
+a:nth-child(1) {
+	width: 100px;
+}
+a:nth-child(2) {
+	width: 110px;
+}
+a:nth-child(3) {
+	width: 100px;
+}
+a:nth-child(4) {
+	width: 160px;
+}
+a:nth-child(5) {
+	width: 120px;
+}
+nav .start-home, a:nth-child(1):hover~.animation {
+	width: 100px;
+	left: 0;
+	background-color: #1abc9c;
+}
+nav .start-about, a:nth-child(2):hover~.animation {
+	width: 110px;
+	left: 100px;
+	background-color: #e74c3c;
+}
+nav .start-blog, a:nth-child(3):hover~.animation {
+	width: 100px;
+	left: 210px;
+	background-color: #3498db;
+}
+nav .start-portefolio, a:nth-child(4):hover~.animation {
+	width: 160px;
+	left: 310px;
+	background-color: #9b59b6;
+}
+nav .start-contact, a:nth-child(5):hover~.animation {
+	width: 120px;
+	left: 470px;
+	background-color: #e67e22;
+}
+
+.entrycontainer {
+	width: 100%;
+	background-color: pink;
+}
+
+.class bentry {
+	height: 80%;
+	width: 80%;
+    background-color: #353535; 
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+	float: left;
+
+}
+
+
+.outer {
+  width: 100%;
+  margin-right: 451px;
+  padding: 1rem;
+  position: relative;
+  background: linear-gradient(to right, #F5A442, #824904);
+  padding: 3px;
+  margin-bottom: 25px;	
+}
+
+.inner {
+  background: #353535;
+  color: white;
+  padding: 5px;
+  overflow:auto;
+}
+
+/* not active */
+.nav-pills .nav-link:not(.active) {
+    background-color: #262525;
+	color: orange;
+	margin: 0 5px;
+}
+
+.nav-pills .nav-link:not(.active):hover {
+    background-color: #F5A442;
+	color: #353535;
+	margin: 0 5px;
+	font-weight: bolder;
+
+}
+
+.nav-pills .nav-link.active, .nav-pills .nav-link.active:hover,.nav-pills .nav-link.active:focus{
+    background-color:#F5A442;
+	color:#353535;
+	font-weight: bolder;
+	margin: 0 5px;
+
+	}
+
+.cardtext {
+	color: black;
+}
+
