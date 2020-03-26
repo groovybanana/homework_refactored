@@ -1,45 +1,48 @@
 pages = [ {
     "filename": "./content/index.html", 
     "output": "./docs/index.html", 
-    "title": "Home",
+    "title": "Chris Moe's Spring 2020 bootcamp project",
 },
 {
     "filename": "./content/blog.html", 
     "output": "./docs/blog.html", 
-    "title": "Blog",
+    "title": "My personal blog",
 },
 {
     "filename": "./content/about.html", 
     "output": "./docs/about.html", 
-    "title": "About Me",
+    "title": "Learn all about Me",
 },
 {
     "filename": "./content/contact.html", 
     "output": "./docs/contact.html", 
-    "title": "Contact Me",
+    "title": "Reach out and get in touch with me",
 },
 {
     "filename": "./content/portfolio.html", 
     "output": "./docs/portfolio.html", 
-    "title": "Portfolio",
+    "title": "A selection of stuff I have built",
 },
 ]
 
 
+def apply_template():
+    template = open("./templates/base.html").read()
+    return template
+
+def combine(contents):
+    template = apply_template()
+    finished_combined_page = template.replace("{{content}}", contents)
+    return finished_combined_page 
 
 def main():
-
     print('rebuilding pages')
-    top = open('./templates/top.html').read()
-    bottom = open('./templates/bottom.html').read()
-
     for page in pages:
         filename = page['filename']
         output = page['output']
         title = page['title']
-        page_content = page['filename'] 
-        contents = open(page_content).read()
-        open(output, 'w+').write(top + contents + bottom)
+        contents = open(filename).read()
+        open(output, "w+").write(combine(contents))
+        print(output)
     print('rebuild complete')
 main()
-
