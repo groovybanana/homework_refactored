@@ -2,47 +2,63 @@ pages = [ {
     "filename": "./content/index.html", 
     "output": "./docs/index.html", 
     "title": "Chris Moe's Spring 2020 bootcamp project",
+    "active": '<a class="nav-link active" data-toggle="tab" href="./index.html">', 
 },
 {
     "filename": "./content/blog.html", 
     "output": "./docs/blog.html", 
     "title": "My personal blog",
+    "active": '<a class="nav-link active" data-toggle="tab" href="./blog.html">', 
 },
 {
     "filename": "./content/about.html", 
     "output": "./docs/about.html", 
     "title": "Learn all about Me",
+    "active": '<a class="nav-link active" data-toggle="tab" href="./about.html">', 
 },
 {
     "filename": "./content/contact.html", 
     "output": "./docs/contact.html", 
     "title": "Reach out and get in touch with me",
+    "active": '<a class="nav-link active" data-toggle="tab" href="./contact.html">', 
 },
 {
     "filename": "./content/portfolio.html", 
     "output": "./docs/portfolio.html", 
-    "title": "A selection of stuff I have built",
+    "title": "Chris Moe: Portfolio",
+    "active": '<a class="nav-link active" data-toggle="tab" href="./portfolio.html">', 
 },
 ]
 
-
-def apply_template():
+def read_in_page(page):
     template = open("./templates/base.html").read()
-    return template
+    filename = page['filename']
+    output = page['output']
+    title = page['title']
+    active = page['active']
+    contents = open(filename).read()
+    return template, filename, output, title, contents, active
 
-def combine(contents):
-    template = apply_template()
-    finished_combined_page = template.replace("{{content}}", contents)
-    return finished_combined_page 
+def add_title_content(template,filename,output,title,active):
+        the_title_added = template.replace("{{title}}", title) 
+        filename_in = filename[9:]
+        nav_text = '<a class="nav-link" data-toggle="tab" href=".'+filename_in+'">'
+        highlighted_nav = the_title_added.replace(nav_text, active)
+        if nav_text in template:
+            open(output, "w+").write(highlighted_nav)
+        else:
+            pass
+        contents = open(filename).read()
+        finished_combined_page = highlighted_nav.replace("{{content}}", contents)
+        open(output, "w+").write(finished_combined_page)
+        return finished_combined_page
+    
 
 def main():
     print('rebuilding pages')
     for page in pages:
-        filename = page['filename']
-        output = page['output']
-        title = page['title']
-        contents = open(filename).read()
-        open(output, "w+").write(combine(contents))
+        template, filename, output, title, contents, active = read_in_page(page)
+        add_title_content(template,filename,output,title,active)
         print(output)
     print('rebuild complete')
 main()
