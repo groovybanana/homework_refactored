@@ -30,6 +30,11 @@ pages = [ {
 },
 ]
 
+def year():
+    import datetime
+    now = datetime.datetime.now()
+    return str(now.year)
+
 def read_in_page(page):
     template = open("./templates/base.html").read()
     filename = page['filename']
@@ -39,11 +44,13 @@ def read_in_page(page):
     contents = open(filename).read()
     return template, filename, output, title, contents, active
 
-def add_title_content(template,filename,output,title,active):
+def add_title_content(template,filename,output,title,active,year):
         the_title_added = template.replace("{{title}}", title) 
         filename_in = filename[9:]
         nav_text = '<a class="nav-link" data-toggle="tab" href=".'+filename_in+'">'
+        year = year()
         highlighted_nav = the_title_added.replace(nav_text, active)
+        highlighted_nav = the_title_added.replace("{{year}}", year)
         if nav_text in template:
             open(output, "w+").write(highlighted_nav)
         else:
@@ -52,13 +59,14 @@ def add_title_content(template,filename,output,title,active):
         finished_combined_page = highlighted_nav.replace("{{content}}", contents)
         open(output, "w+").write(finished_combined_page)
         return finished_combined_page
-    
+  
 
 def main():
     print('rebuilding pages')
     for page in pages:
         template, filename, output, title, contents, active = read_in_page(page)
-        add_title_content(template,filename,output,title,active)
+        add_title_content(template,filename,output,title,active,year)
         print(output)
     print('rebuild complete')
 main()
+
