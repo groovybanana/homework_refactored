@@ -49,8 +49,7 @@ def add_title_content(template,filename,output,title,active,year):
         filename_in = filename[9:]
         nav_text = '<a class="nav-link" data-toggle="tab" href=".'+filename_in+'">'
         year = year()
-        highlighted_nav = the_title_added.replace(nav_text, active)
-        highlighted_nav = the_title_added.replace("{{year}}", year)
+        highlighted_nav = the_title_added.replace(nav_text, active).replace("{{year}}", year)
         if nav_text in template:
             open(output, "w+").write(highlighted_nav)
         else:
